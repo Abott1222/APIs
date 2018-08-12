@@ -2,15 +2,15 @@ import httplib2
 import json
 import sys
 
-print "Running Endpoint Tester....\n"
-address = raw_input("Please enter the address of the server you want to access, \n If left blank the connection will be set to 'http://localhost:5000':   ")
+print( "Running Endpoint Tester....\n")
+address = input("Please enter the address of the server you want to access, \n If left blank the connection will be set to 'http://localhost:5000':   ")
 if address == '':
 	address = 'http://localhost:5000'
 
 
 
 #Making a POST Request
-print "Making a POST request to /puppies..."
+print( "Making a POST request to /puppies...")
 try:
 	url = address + "/puppies?name=Fido&description=Playful+Little+Puppy"
 	h = httplib2.Http()
@@ -21,17 +21,17 @@ try:
 		raise Exception('Received an unsuccessful status code of %s' % resp['status'])
 
 except Exception as err:
-	print "Test 1 FAILED: Could not make POST Request to web server"
-	print err.args
+	print( "Test 1 FAILED: Could not make POST Request to web server")
+	print( err.args)
 	sys.exit()
 else:
-	print "Test 1 PASS: Succesfully Made POST Request to /puppies"
+	print( "Test 1 PASS: Succesfully Made POST Request to /puppies")
 
 
 
 
 #Making a GET Request
-print "Making a GET Request for /puppies..."
+print( "Making a GET Request for /puppies...")
 try:
 	url = address + "/puppies"
 	h = httplib2.Http()
@@ -39,17 +39,17 @@ try:
 	if resp['status'] != '200':
 		raise Exception('Received an unsuccessful status code of %s' % resp['status'])
 except Exception as err:
-	print "Test 2 FAILED: Could not make GET Request to web server"
-	print err.args
+	print( "Test 2 FAILED: Could not make GET Request to web server")
+	print( err.args)
 	sys.exit()
 else:
-	print "Test 2 PASS: Succesfully Made GET Request to /puppies"
+	print( "Test 2 PASS: Succesfully Made GET Request to /puppies")
 
 
 
 
 #Making GET Requests to /puppies/id
-print "Making GET requests to /puppies/id "
+print( "Making GET requests to /puppies/id ")
 
 try:
 	id = puppyID
@@ -61,16 +61,16 @@ try:
 	
 
 except Exception as err:
-	print "Test 3 FAILED: Could not make GET Requests to web server"
-	print err.args
+	print( "Test 3 FAILED: Could not make GET Requests to web server")
+	print( err.args)
 	sys.exit()
 else:
-	print "Test 3 PASS: Succesfully Made GET Request to /puppies/id"
+	print( "Test 3 PASS: Succesfully Made GET Request to /puppies/id")
 
 
 
 #Making a PUT Request
-print "Making PUT requests to /puppies/id "
+print( "Making PUT requests to /puppies/id ")
 
 try:
 	id = puppyID 
@@ -82,16 +82,16 @@ try:
 		raise Exception('Received an unsuccessful status code of %s' % resp['status'])
 
 except Exception as err:
-	print "Test 4 FAILED: Could not make PUT Request to web server"
-	print err.args
+	print( "Test 4 FAILED: Could not make PUT Request to web server")
+	print( err.args)
 	sys.exit()
 else:
-	print "Test 4 PASS: Succesfully Made PUT Request to /puppies/id"
+	print( "Test 4 PASS: Succesfully Made PUT Request to /puppies/id")
 
 
 #Making a DELETE Request
 
-print "Making DELETE requests to /puppies/id ... "
+print( "Making DELETE requests to /puppies/id ... ")
 
 try:
 	id = puppyID
@@ -103,11 +103,13 @@ try:
 	
 
 except Exception as err:
-	print "Test 5 FAILED: Could not make DELETE Requests to web server"
-	print err.args
+	print( "Test 5 FAILED: Could not make DELETE Requests to web server")
+	print( err.args)
 	sys.exit()
 else:
-	print "Test 5 PASS: Succesfully Made DELETE Request to /puppies/id"
-	print "ALL TESTS PASSED!!"
+	print( "Test 5 PASS: Succesfully Made DELETE Request to /puppies/id")
+	print( "ALL TESTS PASSED!!")
+	
+
 
 
